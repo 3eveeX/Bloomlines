@@ -8,6 +8,7 @@ namespace InventorySystem
     /// Contains information about an item to be passed through code
     /// </summary>
 
+    [System.Serializable]
     public class InventoryItem
     {
         private int amount;

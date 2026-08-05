@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cf265af9f33e454eaeced7e76b8aa4d, type: 3}
+  m_Name: SeedToPlantDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::PlantDatabase
+  entries:
+  - seedRelatedObject: {fileID: 1014688961469139356, guid: b48569855f14a6343b1c6927c2003a99, type: 3}
+    plantData: {fileID: 11400000, guid: 6b3adda41ab5ab74381fb67a41a95b8c, type: 2}
