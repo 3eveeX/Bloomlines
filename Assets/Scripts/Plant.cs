@@ -27,6 +27,7 @@ public class Plant : MonoBehaviour
 
         growthStage++;
         UpdateVisual();
+        Debug.LogWarning($"Plant {data.plantName} has grown to stage {growthStage}.");
 
         if (growthStage < data.maxGrowthStage)
             StartCoroutine(GrowNextStage());

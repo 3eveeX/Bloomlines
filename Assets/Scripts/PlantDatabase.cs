@@ -23,5 +23,20 @@ public class PlantDatabase : ScriptableObject
         }
         return null;
     }
-    
+
+    // PlantDatabase
+    public bool TryGetSeedType(string itemType, out string seedType)
+    {
+        foreach (var entry in entries)
+        {
+            if (entry.plantData != null && entry.plantData.plantName == itemType)
+            {
+                seedType = entry.plantData.plantName + "Seed";
+                return true;
+            }
+        }
+        seedType = null;
+        return false;
+    }
+
 }

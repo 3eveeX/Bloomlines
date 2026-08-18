@@ -10,19 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb4808031f999e042a57f448fd36a710, type: 3}
-  m_Name: Carrot
+  m_Name: Almond
   m_EditorClassIdentifier: Assembly-CSharp::PlantData
-  plantName: Carrot
+  plantName: Almond
   growthStageMeshes: []
-  maxGrowthStage: 4
-  baseStageTime: 20
-  grownPlantPrefab: {fileID: 2078330753900586059, guid: cc5b9cfb12df93949853c137a5487264, type: 3}
-  harvestedItemType: Carrot
-  baseYieldAmount: 3
+  maxGrowthStage: 1
+  baseStageTime: 10
+  grownPlantPrefab: {fileID: 1520340434851024171, guid: 0601d86ed3d0614469707faf334ff2b9, type: 3}
+  harvestedItemType: Almond
+  baseYieldAmount: 2
   mutations:
-  - partner: {fileID: 11400000}
-    result: {fileID: 11400000, guid: e2a5cf4ea1fc5544297c6f79d0d34f93, type: 2}
-    chance: 0.125
-  - partner: {fileID: 11400000, guid: e2a5cf4ea1fc5544297c6f79d0d34f93, type: 2}
+  - partner: {fileID: 11400000, guid: 6b3adda41ab5ab74381fb67a41a95b8c, type: 2}
     result: {fileID: 11400000, guid: b38c557f73ba59c40a875adbd81509ca, type: 2}
     chance: 1

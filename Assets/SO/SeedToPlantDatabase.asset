@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: SeedToPlantDatabase
   m_EditorClassIdentifier: Assembly-CSharp::PlantDatabase
   entries:
-  - seedRelatedObject: {fileID: 1014688961469139356, guid: b48569855f14a6343b1c6927c2003a99, type: 3}
+  - seedRelatedObject: {fileID: 2078330753900586059, guid: cc5b9cfb12df93949853c137a5487264, type: 3}
     plantData: {fileID: 11400000, guid: 6b3adda41ab5ab74381fb67a41a95b8c, type: 2}
+  - seedRelatedObject: {fileID: 1520340434851024171, guid: 0601d86ed3d0614469707faf334ff2b9, type: 3}
+    plantData: {fileID: 11400000, guid: e2a5cf4ea1fc5544297c6f79d0d34f93, type: 2}
+  - seedRelatedObject: {fileID: 1520340434851024171, guid: 6859fc486476d654dac97aff78716fcc, type: 3}
+    plantData: {fileID: 11400000, guid: b38c557f73ba59c40a875adbd81509ca, type: 2}

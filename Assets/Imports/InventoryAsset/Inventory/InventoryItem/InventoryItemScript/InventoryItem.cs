@@ -25,6 +25,12 @@ namespace InventorySystem
         private int position;
         private string inventory;
         private string previousInventory;
+
+        // --- BLOOMLINES ADDITION (not part of the original asset) ---
+        // Coat-check ticket into SeedDesk. 0 means "no genetics attached",
+        // which is every non-seed item and every wild/shop seed.
+        private int seedTicket = 0;
+        // ------------------------------------------------------------
         public InventoryItem(ItemInitializer init)
         {
             this.amount = 1;
@@ -59,6 +65,7 @@ namespace InventorySystem
             this.inventory = other.inventory;
             this.position = other.position;
             this.previousInventory= other.previousInventory;
+            this.seedTicket = other.seedTicket; // BLOOMLINES: carry genetics through copies
         }
 
         public InventoryItem(bool isNull)
@@ -136,6 +143,17 @@ namespace InventorySystem
         {
             return inventory;
         }
+        // --- BLOOMLINES ADDITION (not part of the original asset) ---
+        public int GetSeedTicket()
+        {
+            return seedTicket;
+        }
+        public void SetSeedTicket(int ticket)
+        {
+            this.seedTicket = ticket;
+        }
+        // ------------------------------------------------------------
+
         public override string ToString()
         {
             string result = $@"

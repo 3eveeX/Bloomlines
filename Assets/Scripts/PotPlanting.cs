@@ -57,9 +57,10 @@ public class PotPlanting : MonoBehaviour
         int slotIndex = hotbarScroll.CurrentSlotIndex;
         Inventory hotbar = InventoryController.instance.GetInventory("Hotbar");
         InventoryItem heldSeed = hotbar.InventoryGetItem(slotIndex);
-        string itemType = heldSeed.GetItemType();
+        if (heldSeed == null || heldSeed.GetIsNull()) return;
 
-        if (itemType != "Seed") return;
+        string itemType = heldSeed.GetItemType();
+        if (itemType == null || !itemType.Contains("Seed")) return;
 
         PlantData data = plantDatabase.GetPlantData(heldSeed);
         if (data == null)
@@ -75,12 +76,22 @@ public class PotPlanting : MonoBehaviour
         GameObject plantObj = Instantiate(data.grownPlantPrefab, transform.position, UnityEngine.Quaternion.identity);
         currentPlant = plantObj.GetComponent<Plant>();
         currentPlant.data = data;
+
+        // The prefab's own stats are only a default. Overwrite them with this
+        // particular seed's genetics, fetched from the desk using its ticket.
+        // A wild seed has ticket 0 and correctly gets plain 1.0x stats back.
+        currentPlant.stats = SeedDesk.Instance.Lookup(seedItem.GetSeedTicket());
     }
 
     private void Harvest()
     {
-        int yieldAmount = Mathf.RoundToInt(currentPlant.data.baseYieldAmount * currentPlant.stats.yieldMultiplier);
-        InventoryController.instance.AddItem("Hotbar", currentPlant.data.harvestedItemType, yieldAmount);
+        // Mathf.Max keeps a badly bred plant from yielding literally nothing.
+        int yieldAmount = Mathf.Max(1, Mathf.RoundToInt(currentPlant.data.baseYieldAmount * currentPlant.stats.yieldMultiplier));
+
+        // Carry this plant's genetics into the produce it drops, so the seeder can pass
+        // them on to the next generation instead of resetting everything to 1.0x.
+        int ticket = SeedDesk.Instance.CheckIn(currentPlant.stats);
+        SeedDesk.AddTicketedItem("Hotbar", currentPlant.data.harvestedItemType, ticket, yieldAmount);
 
         Destroy(currentPlant.gameObject);
         currentPlant = null;
